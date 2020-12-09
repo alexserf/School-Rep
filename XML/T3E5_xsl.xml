@@ -1,0 +1,12 @@
+<maliste>
+{
+  for $dinsctsigle in distinct-values(doc("T3E2_xml.xml")//@sigle)
+  return
+  <cours sigle="{$fsigle}">
+    {
+      avg(for $avgnote in doc("T3E2_xml.xml")//cours[@sigle=$distinctsigle]/@note 
+        return $avgnote)
+    }
+  </cours>
+}
+</maliste>
