@@ -1,0 +1,39 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+ <xsl:key name="nameDistinct" match="cours" use="@sigle"/>
+
+ <xsl:template match="/">
+ <html>
+ <body>
+
+ <table border="1">
+ <tr>
+ <td> Sigle </td>
+ <td> Nombre d'etudiants </td>
+ <td> Moyenne du cours </td>
+ </tr>
+
+ <xsl:variable name="n">
+     <xsl:number count="etudiant"/>
+ </xsl:variable>
+ <xsl:value-of select="$n"/>
+
+ <xsl:for-each
+   select="universite/etudiant/cours[generate-id() =
+                      generate-id(key('nameDistinct', @sigle)[1])]">
+      <tr>
+        <td><xsl:value-of select="current()/@sigle"/></td>
+        <td><a id="{generate-id(sigle)}">
+             <xsl:value-of select="count(//etudiant/cours[@sigle=current()/@sigle])"/> </a></td>
+        <td><xsl:value-of select="format-number(sum(//cours[@sigle=current()/@sigle]/@note) div count(//etudiant/cours[@sigle=current()/@sigle]),'#.0')"/></td>
+      </tr>
+ </xsl:for-each>
+ </table>
+ </body>
+ </html>
+ </xsl:template>
+
+</xsl:stylesheet>

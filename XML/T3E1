@@ -1,0 +1,41 @@
+<a>
+  <b>Rouge</b>
+  <c>
+    <a>Olive</a>
+    <b>Bleu</b>
+    <a>
+      <a>Noir</a>
+      Olive
+      <b>Bleu</b>
+      <a>Rouge</a>
+      <a>Noir</a>
+    </a>
+  </c>
+  <b>
+    <a>Rouge</a>
+    <b>Noir</b>
+  </b>
+  <d>majuscule</d>
+</a>
+
+a>c>a{
+display: block;
+color: Olive!important;
+}
+b, c>a>b, a>c>b{
+display: block;
+color: blue;
+}
+a>b,a+b+a, b>a{
+display: block;
+color: red;
+}
+a>a,a+b,a>b>b{
+display: block;
+color: black;
+}
+d {
+display: block;
+color: black;
+text-transform: uppercase;
+}

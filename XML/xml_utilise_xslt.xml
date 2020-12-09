@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+  <?xml-stylesheet href="facture_xslt.xml"
+  type="application/xml"?>
+  <facture>
+   <montant>10.10</montant>
+  <personne>Jean Rochond</personne>s
+  <raison>Achat d'ordinateur</raison>
+  </facture>
